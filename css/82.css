@@ -1,0 +1,401 @@
+  :root {
+            --primary-cosmic-blue: #0a0f1c;
+            --secondary-nebula-purple: #1a0d2e;
+            --accent-neon-cyan: #00ffff;
+            --accent-electric-orange: #ff6600;
+            --accent-quantum-gold: #ffd700;
+            --accent-matrix-green: #00ff41;
+            --text-stellar-white: #ffffff;
+            --text-cosmic-gray: #b8c5d6;
+            --gradient-cosmic-primary: linear-gradient(135deg, #0a0f1c 0%, #1a0d2e 50%, #2d1b69 100%);
+            --gradient-neon-accent: linear-gradient(45deg, #00ffff 0%, #00ff41 50%, #ffd700 100%);
+            --shadow-cosmic-glow: 0 0 20px rgba(0, 255, 255, 0.3);
+            --transition-quantum: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: var(--gradient-cosmic-primary);
+            color: var(--text-stellar-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .cosmic-grid-background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            animation: cosmic-grid-pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes cosmic-grid-pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.1; }
+        }
+
+        .stellar-particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .quantum-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-neon-cyan);
+            border-radius: 50%;
+            animation: stellar-drift 8s linear infinite;
+        }
+
+        .quantum-particle:nth-child(odd) {
+            background: var(--accent-electric-orange);
+            animation-duration: 12s;
+        }
+
+        .quantum-particle:nth-child(3n) {
+            background: var(--accent-quantum-gold);
+            animation-duration: 6s;
+        }
+
+        @keyframes stellar-drift {
+            0% {
+                transform: translateY(-10px) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 10px)) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .main-cosmic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-quantum-section {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .main-stellar-headline {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--gradient-neon-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            animation: neon-pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-pulse-glow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7)); }
+            100% { filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.9)); }
+        }
+
+        .ai-avatar-cosmic-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .circular-ai-portrait {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-neon-cyan);
+            box-shadow: var(--shadow-cosmic-glow);
+            object-fit: cover;
+            animation: cosmic-rotation 20s linear infinite;
+        }
+
+        @keyframes cosmic-rotation {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .stock-input-quantum-container {
+            background: rgba(26, 13, 46, 0.8);
+            border: 2px solid var(--accent-neon-cyan);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stock-input-field-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .quantum-stock-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid var(--accent-matrix-green);
+            border-radius: 10px;
+            background: rgba(10, 15, 28, 0.9);
+            color: var(--text-stellar-white);
+            outline: none;
+            transition: var(--transition-quantum);
+        }
+
+        .quantum-stock-input::placeholder {
+            color: var(--text-cosmic-gray);
+        }
+
+        .quantum-stock-input:focus {
+            border-color: var(--accent-quantum-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cosmic-action-button {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            background: var(--gradient-neon-accent);
+            border: none;
+            border-radius: 12px;
+            color: var(--primary-cosmic-blue);
+            cursor: pointer;
+            transition: var(--transition-quantum);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cosmic-action-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s;
+        }
+
+        .cosmic-action-button:hover::before {
+            transform: scale(1);
+        }
+
+        .cosmic-action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+        }
+
+        .features-constellation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-stellar-card {
+            background: rgba(26, 13, 46, 0.6);
+            border: 1px solid var(--accent-electric-orange);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition-quantum);
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-stellar-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-quantum-gold);
+            box-shadow: 0 15px 30px rgba(0, 255, 65, 0.2);
+        }
+
+        .feature-icon-quantum {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient-neon-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonial-cosmic-section {
+            margin: 60px 0;
+        }
+
+        .testimonial-nebula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .testimonial-star-card {
+            background: rgba(10, 15, 28, 0.8);
+            border: 1px solid var(--accent-neon-cyan);
+            border-radius: 12px;
+            padding: 25px;
+            transition: var(--transition-quantum);
+        }
+
+        .testimonial-star-card:hover {
+            border-color: var(--accent-quantum-gold);
+            transform: scale(1.02);
+        }
+
+        .risk-disclosure-quantum-section {
+            background: rgba(139, 0, 0, 0.1);
+            border: 2px solid #ff4444;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 60px 0;
+        }
+
+        .risk-warning-header {
+            color: var(--accent-quantum-gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-cosmic-links {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--accent-electric-orange);
+            margin-top: 40px;
+        }
+
+        .footer-legal-link {
+            color: var(--accent-neon-cyan);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: var(--transition-quantum);
+        }
+
+        .footer-legal-link:hover {
+            color: var(--accent-quantum-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .modal-quantum-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-cosmic-container {
+            background: var(--gradient-cosmic-primary);
+            border: 2px solid var(--accent-neon-cyan);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modal-cosmic-appear 0.5s ease-out;
+        }
+
+        @keyframes modal-cosmic-appear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .progress-quantum-bar-container {
+            width: 100%;
+            height: 20px;
+            background: rgba(10, 15, 28, 0.8);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-stellar-fill {
+            height: 100%;
+            background: var(--gradient-neon-accent);
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.1s ease;
+            animation: progress-glow-pulse 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes progress-glow-pulse {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 0, 128, 0.8); }
+        }
+
+        @media (max-width: 768px) {
+            .main-cosmic-container {
+                padding: 15px;
+            }
+            
+            .hero-quantum-section {
+                padding: 40px 0 30px;
+            }
+            
+            .stock-input-quantum-container {
+                margin: 30px auto;
+                padding: 25px;
+            }
+            
+            .features-constellation-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modal-cosmic-container {
+                padding: 30px;
+                margin: 20px;
+            }
+        }
+
+        .section-cosmic-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: var(--gradient-neon-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
